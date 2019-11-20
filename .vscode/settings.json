@@ -1,6 +1,14 @@
 {
     "cSpell.words": [
         "autoloader",
-        "phalcon"
+        "db",
+        "inno",
+        "invo",
+        "mapcolumn",
+        "phalcon",
+        "phpmyadmin",
+        "signin",
+        "signup",
+        "tinyint"
     ]
 }
