@@ -56,16 +56,17 @@ https://github.com/jeevan15498/Phalcon-Project-Demo
     - API Status Code
         * https://www.restapitutorial.com/httpstatuscodes.html
         * https://documentation.commvault.com/commvault/v11_sp14/article?p=45599.htm
-            | Code | Status | Description |
-            | ---- | ------ | ----------- |
-            | 200 | OK | The request was successfully completed. |
-            | 201 | Created | A new resource was successfully created. |
-            | 400 | Bad Request | The request was invalid. |
-            | 401 | Unauthorized | The request did not include an authentication token or the authentication token was expired. |
-            | 403 | Forbidden | The client did not have permission to access the requested resource. |
-            | 404 | Not Found | The requested resource was not found. |
-            | 405 | Method Not Allowed | The HTTP method in the request was not supported by the resource. For example, the DELETE method cannot be used with the Agent API. |
-            | 409 | Conflict | The request could not be completed due to a conflict. For example,  POST ContentStore Folder API cannot complete if the given file or folder name already exists in the parent location. |
-            | 500 | Internal Server Error | The request was not completed due to an internal error on the server side. |
-            | 503 | Service Unavailable | The server was unavailable. |
+    
+        | Code | Status | Description |
+        | ---- | ------ | ----------- |
+        | 200 | OK | The request was successfully completed. |
+        | 201 | Created | A new resource was successfully created. |
+        | 400 | Bad Request | The request was invalid. |
+        | 401 | Unauthorized | The request did not include an authentication token or the authentication token was expired. |
+        | 403 | Forbidden | The client did not have permission to access the requested resource. |
+        | 404 | Not Found | The requested resource was not found. |
+        | 405 | Method Not Allowed | The HTTP method in the request was not supported by the resource. For example, the DELETE method cannot be used with the Agent API. |
+        | 409 | Conflict | The request could not be completed due to a conflict. For example,  POST ContentStore Folder API cannot complete if the given file or folder name already exists in the parent location. |
+        | 500 | Internal Server Error | The request was not completed due to an internal error on the server side. |
+        | 503 | Service Unavailable | The server was unavailable. |
     - Test API on this Application `https://insomnia.rest/`
