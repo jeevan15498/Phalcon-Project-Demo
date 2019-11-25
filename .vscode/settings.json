@@ -2,6 +2,7 @@
     "cSpell.words": [
         "autoloader",
         "db",
+        "devtools",
         "inno",
         "invo",
         "mapcolumn",
@@ -9,6 +10,7 @@
         "phpmyadmin",
         "signin",
         "signup",
-        "tinyint"
+        "tinyint",
+        "youtube"
     ]
 }

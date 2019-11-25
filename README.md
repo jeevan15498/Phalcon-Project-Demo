@@ -8,8 +8,8 @@ https://github.com/jeevan15498/Phalcon-Project-Demo
 * include part of footer, header
 * ACL (get roles (admin, guest, user) from databases)
 * ajax post or get sample
+* 404 error for If controller or action not exits. (https://docs.phalcon.io/3.4/en/routing#not-found-paths)
 * multi-language support
-* 404 error for If controller or action not exits.
 
 ## Completed Topics
 
@@ -46,3 +46,26 @@ https://github.com/jeevan15498/Phalcon-Project-Demo
     - Check Signup Form
     - Create Login Method in `IndexController.php` file
     - https://docs.phalconphp.com/en/3.3/session#start
+
+* Ajax post or get sample (API)
+    - Firstly create a API Controller file using `Phalcon DevTools: phalcon create-controller API`
+    - Read: https://docs.phalcon.io/3.4/en/routing#http-method-restrictions
+    - Read: https://docs.phalcon.io/3.4/en/request
+    - Read: https://docs.phalcon.io/3.4/en/response.html
+    - Make API Controller
+    - API Status Code
+        * https://www.restapitutorial.com/httpstatuscodes.html
+        * https://documentation.commvault.com/commvault/v11_sp14/article?p=45599.htm
+            | Code | Status | Description |
+            | ---- | ------ | ----------- |
+            | 200 | OK | The request was successfully completed. |
+            | 201 | Created | A new resource was successfully created. |
+            | 400 | Bad Request | The request was invalid. |
+            | 401 | Unauthorized | The request did not include an authentication token or the authentication token was expired. |
+            | 403 | Forbidden | The client did not have permission to access the requested resource. |
+            | 404 | Not Found | The requested resource was not found. |
+            | 405 | Method Not Allowed | The HTTP method in the request was not supported by the resource. For example, the DELETE method cannot be used with the Agent API. |
+            | 409 | Conflict | The request could not be completed due to a conflict. For example,  POST ContentStore Folder API cannot complete if the given file or folder name already exists in the parent location. |
+            | 500 | Internal Server Error | The request was not completed due to an internal error on the server side. |
+            | 503 | Service Unavailable | The server was unavailable. |
+    - Test API on this Application `https://insomnia.rest/`
