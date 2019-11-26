@@ -70,3 +70,19 @@ https://github.com/jeevan15498/Phalcon-Project-Demo
         | 500 | Internal Server Error | The request was not completed due to an internal error on the server side. |
         | 503 | Service Unavailable | The server was unavailable. |
     - Test API on this Application `https://insomnia.rest/`
+
+
+
+## Another Features
+
+### Create a model, controller and views with phalcon-tools. 
+
+https://www.learnphalcon.com/post/show/11/user-login---step-1
+
+```cmd
+phalcon scaffold user --get-set
+
+phalcon scaffold user --get-set --ns-models=namespaceName
+```
+
+![Create MVC](cmd1.png)
