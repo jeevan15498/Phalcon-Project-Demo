@@ -71,7 +71,65 @@ https://github.com/jeevan15498/Phalcon-Project-Demo
         | 503 | Service Unavailable | The server was unavailable. |
     - Test API on this Application `https://insomnia.rest/`
 
-
+* Putting the Access Control List in the Database
+    - Read: https://www.learnphalcon.com/post/show/9/putting-the-access-control-list-in-the-database---step-1
+    - Create `Four` Database Tables
+        1. `dbrole`
+        ```sql
+        CREATE TABLE `dbrole` (
+            `role` varchar(40) NOT NULL,
+            `description` varchar(160) NOT NULL,
+            PRIMARY KEY (`role`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+        ```
+        2. `dbresource`
+        ```sql
+        CREATE TABLE `dbresource` (
+            `resource` varchar(40) NOT NULL,
+            PRIMARY KEY (`resource`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+        ```
+        3. `dbaction`
+        ```sql
+        CREATE TABLE `dbaction` (
+            `resource` varchar(40) NOT NULL,
+            `action` varchar(40) NOT NULL,
+            PRIMARY KEY (`resource`,`action`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+        ```
+        4. `dbaccesscontrollist`
+        ```sql
+        CREATE TABLE `dbaccesscontrollist` (
+            `role` varchar(40) NOT NULL,
+            `action` varchar(40) NOT NULL,
+            `resource` varchar(40) NOT NULL,
+            PRIMARY KEY (`role`,`action`,`resource`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+        ```
+    - Insert User Role in the `dbrole` database table
+    ```sql
+    insert into dbrole values('Registered User', 'Registered User privileges, granted after sign in.');
+    insert into dbrole values('Guest','Anyone browsing the site who is not signed in is considered to be a "Guest".');
+    insert into dbrole values('Admin','Administrator - can do everything');
+    ```
+    - Create models for the `dbrole`, `dbresource` and `dbaction` tables but do a full **scaffold** on the `dbaccesscontrollist` table.
+    ```cmd
+    phalcon model dbrole --get-set --namespace=security
+    phalcon model dbresource --get-set --namespace=security
+    phalcon model dbaction --get-set --namespace=security
+    ```
+    ```cmd
+    phalcon scaffold dbaccesscontrollist --get-set --ns-models=security
+    ```
+    - Open file `/app/config/loader.php` and Insert `security` **Namespace**
+    ```php
+    $loader->registerNamespaces(
+        [
+        "security" => $config->application->modelsDir
+        ]
+    );
+    ```
+    - Then Update `Dbaccesscontrollistcontroller.php` File in the controller folder and create view file
 
 ## Another Features
 
