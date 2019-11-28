@@ -14,5 +14,9 @@ class UserController extends \Phalcon\Mvc\Controller
 
     }
 
+    public function getAction()
+    {
+
+    }
 }
 

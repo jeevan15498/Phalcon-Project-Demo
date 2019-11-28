@@ -12,6 +12,7 @@
 <ul>
     <li><a href="./index/login">Login</a></li>
     <li><a href="./index/signup">Signup</a></li>
+    <li><a href="./Dbaccesscontrollist/setAccessControl/user">User ACL</a></li>
 </ul>
 <br>
 <p><strong>API Controller</strong></p>
