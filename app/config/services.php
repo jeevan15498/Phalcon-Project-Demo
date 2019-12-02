@@ -8,6 +8,9 @@ use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
 
+use Phalcon\Mvc\Dispatcher as Dispatcher;
+use Phalcon\Events\Manager as EventsManager;
+
 /**
  * Shared configuration service
  */
@@ -109,4 +112,15 @@ $di->setShared('session', function () {
     $session->start();
 
     return $session;
+});
+
+$di->set('dispatcher', function () use ($di) {
+    $eventsManager = new EventsManager;
+    // Check if the user is allowed to access certain action using the SecurityPlugin
+    $eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
+    // Handle exceptions and not-found exceptions using NotFoundPlugin
+    // $eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
+    $dispatcher = new Dispatcher();
+    $dispatcher->setEventsManager($eventsManager);
+    return $dispatcher;
 });

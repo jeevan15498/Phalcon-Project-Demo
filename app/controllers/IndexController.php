@@ -48,13 +48,14 @@ class IndexController extends ControllerBase
                     # https://docs.phalconphp.com/en/3.3/session#start
         
                     // Set a session
-                    $this->session->set('AUTH_ID', $user->id);
-                    $this->session->set('AUTH_NAME', $user->name);
-                    $this->session->set('AUTH_EMAIL', $user->email);
-                    $this->session->set('AUTH_ROLE', $user->role);
-                    $this->session->set('AUTH_CREATED', $user->created);
-                    $this->session->set('AUTH_UPDATED', $user->updated);
-                    $this->session->set('IS_LOGIN', 1);
+                    $this->session->set('AUTH', [
+                        'id' => $user->id,
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'role' => $user->role,
+                        'created' => $user->created,
+                        'updated' => $user->updated,
+                    ]);
 
                     if ($user->role === 1) {
                         // Redirect User Panel
@@ -119,6 +120,12 @@ class IndexController extends ControllerBase
                 $this->view->disable();
             }
         }
+    }
+
+    public function logoutAction()
+    {
+        $this->session->destroy();
+        return $this->response->redirect("");
     }
 }
 

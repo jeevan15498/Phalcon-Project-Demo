@@ -71,7 +71,7 @@ https://github.com/jeevan15498/Phalcon-Project-Demo
         | 503 | Service Unavailable | The server was unavailable. |
     - Test API on this Application `https://insomnia.rest/`
 
-* Putting the Access Control List in the Database
+* Putting the Access Control List in the Database - Step 1
     - Read: https://www.learnphalcon.com/post/show/9/putting-the-access-control-list-in-the-database---step-1
     - Create `Four` Database Tables
         1. `dbrole`
@@ -130,6 +130,37 @@ https://github.com/jeevan15498/Phalcon-Project-Demo
     );
     ```
     - Then Update `Dbaccesscontrollistcontroller.php` File in the controller folder and create view file
+
+* Access Control List in the Database - Step 2
+    - Now that the roles, resources, actions and access control list are stored in the database we need to modify the Security Plugin to use this information rather than hard-coding this information directly into the Security Plugin PHP file itself.
+    - Read: https://www.learnphalcon.com/post/show/10/putting-the-access-control-list-in-the-database---step-2
+    - Create new folder `apps/plugins` and Create `SecurityPlugin.php` File
+    - Register Plugins Path in `app\config\loader.php` File
+        ```php
+        $config->application->pluginsDir,
+        ```
+    - To get the Security Plugin working you need to add some code to the `app/config/services.php` file.
+        ```php
+        use Phalcon\Mvc\Dispatcher as Dispatcher;
+        use Phalcon\Events\Manager as EventsManager;
+        ```
+        ```php
+        $di->set('dispatcher', function () use ($di) {
+            $eventsManager = new EventsManager;
+            // Check if the user is allowed to access certain action using the SecurityPlugin
+            $eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
+            // Handle exceptions and not-found exceptions using NotFoundPlugin
+            // $eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
+            $dispatcher = new Dispatcher();
+            $dispatcher->setEventsManager($eventsManager);
+            return $dispatcher;
+        });
+        ```
+    - Create new controller file `ErrorsController.php` and create view files
+    - All roles should be able to access all actions of the Errors Controller all the time.
+    - Update User Session Data and update `\app\views\index\login.volt`, `app\views\index\signup.volt` file
+    - Insert User Logout method in index controller and given all user role permission
+    - Update User Role in the database `users` table
 
 ## Another Features
 

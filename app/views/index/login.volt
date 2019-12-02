@@ -10,9 +10,8 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">User Login</button>
     </form>
 </div>
-
-<?= "User Name  :  ". $this->session->get('AUTH_NAME') ?>
+<?= "User Name  :  ". $this->session->get('AUTH')['name'] ?>
 <br>
-<?= "User Email  :  ". $this->session->get('AUTH_EMAIL') ?>
+<?= "User Email  :  ". $this->session->get('AUTH')['email'] ?>
 <br>
-<?= "User Role  :  ". $this->session->get('AUTH_ROLE') ?>
+<?= "User Role  :  ". $this->session->get('AUTH')['role'] ?>

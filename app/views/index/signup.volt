@@ -13,8 +13,8 @@
         <label for="role" class="sr-only">User Role</label>
         <select class="form-control" name="role" id="user_role">
             <option value="">Select User Role</option>
-            <option value="1">User</option>
-            <option value="2">Admin</option>
+            <option value="Registered User">User</option>
+            <option value="Admin">Admin</option>
         </select>
         <br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">User Sign-Up</button>

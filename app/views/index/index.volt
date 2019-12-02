@@ -11,8 +11,16 @@
 <p><strong>Index Controller</strong></p>
 <ul>
     <li><a href="./index/login">Login</a></li>
-    <li><a href="./index/signup">Signup</a></li>
-    <li><a href="./Dbaccesscontrollist/setAccessControl/user">User ACL</a></li>
+    <li><a href="./index/signup">Sign up</a></li>
+    <li><a href="./index/logout">Logout</a></li>
+    <li><a href="./Dbaccesscontrollist/setAccessControl/index">Index Controller (User) <code>ACL</code></a></li>
+</ul>
+<br>
+<p><strong>Other Controller <code>Access Control List</code></strong></p>
+<ul>
+    <li><a href="./Dbaccesscontrollist/setAccessControl/user">User Controller <code>ACL</code></a></li>
+    <li><a href="./Dbaccesscontrollist/setAccessControl/dbaccesscontrollist">Dbaccesscontrollist Controller <code>ACL</code></a></li>
+    <li><a href="./Dbaccesscontrollist/setAccessControl/errors">Errors Controller <code>ACL</code></a></li>
 </ul>
 <br>
 <p><strong>API Controller</strong></p>
