@@ -125,7 +125,7 @@ https://github.com/jeevan15498/Phalcon-Project-Demo
     ```php
     $loader->registerNamespaces(
         [
-        "security" => $config->application->modelsDir
+            "security" => $config->application->modelsDir
         ]
     );
     ```
