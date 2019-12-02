@@ -1,16 +1,25 @@
 {
     "cSpell.words": [
         "autoloader",
+        "controller",
         "db",
+        "dbaccesscontrollist",
+        "dbaccesscontrollistcontroller",
+        "dbaction",
+        "dbresource",
+        "dbrole",
         "devtools",
+        "endforeach",
         "inno",
         "invo",
         "mapcolumn",
+        "paginator",
         "phalcon",
         "phpmyadmin",
         "signin",
         "signup",
         "tinyint",
+        "varchar",
         "youtube"
     ]
 }

@@ -1,0 +1,57 @@
+<h3>Set Access Control for the <b><?= $resource ?></b> Controller</h3>
+<?php
+    echo $this->tag->form(
+        [
+            "dbaccessControlList/saveAccessControl",
+            "autocomplete" => "off",
+            "class" => "form-horizontal"
+        ]
+    );
+?>
+<input type="hidden" name="resource" value="<?= $resource ?>">
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Methods</th>
+                <?php foreach ($roles as $role): ?>
+                    <th><?= $role->getRole(); ?></th>
+                <?php endforeach; ?>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($actions as $action): ?>
+            <tr>
+                <td><?php  echo $action->getAction(); ?></td>
+                <?php foreach ($roles as $role): ?>
+                    <td>
+                        <?php
+                            $thisAction = $action->getAction();
+                            $thisRole = $role->getRole();
+                            $hasAccess = false;
+
+                            foreach ($aclItems as $item) {
+                                if ($item->getRole() == $role->getRole() && $item->getAction() == $action->getAction() && $item->getResource() == $resource) {
+                                    $hasAccess = true;
+                                }
+                            }
+                            if ($hasAccess) {
+                                echo "<input type='checkbox' name='aclItem[$thisRole][$thisAction]' checked>";
+                            } else {
+                                echo "<input type='checkbox' name='aclItem[$thisRole][$thisAction]'>";
+                            }
+                        ?>
+                    </td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?= $this->tag->submitButton(["Save", "class" => "btn btn-success"]) ?>
+    </div>
+</div>
+
+<?= $this->tag->endForm(); ?>
